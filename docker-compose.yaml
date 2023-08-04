@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  app:
+    container_name: api_yamdb
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python3.9 api_yamdb/manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    restart: always
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
